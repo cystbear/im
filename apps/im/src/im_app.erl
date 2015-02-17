@@ -1,15 +1,7 @@
 -module(im_app).
 -behaviour(application).
--export([start/0, start/2, stop/1, main/1]).
+-export([start/2, stop/1]).
 
-main(A) ->
-
-   mad_repl:main(A,[]).
-
-start() -> start(normal, []).
-start(_StartType, _StartArgs) ->
-
-    Res = im_sup:start_link(),
-    Res.
-
+%% start(_StartType, _StartArgs) -> im_sup:start_link().
+start(_StartType, _StartArgs) -> ok.
 stop(_State) -> ok.

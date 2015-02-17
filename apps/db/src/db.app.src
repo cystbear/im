@@ -1,0 +1,9 @@
+{application, db,
+ [
+  {description, "my.ua IM (db)"},
+  {vsn, "1"},
+  {registered, []},
+  {applications, []}, %% should be kvs there
+  {mod, { db_app, []}},
+  {env, []}
+ ]}.

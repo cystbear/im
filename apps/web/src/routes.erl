@@ -1,5 +1,5 @@
 -module(routes).
--author('Oleg Zinchenko').
+-author('Maxim Sokhatsky').
 -include_lib("n2o/include/wf.hrl").
 -export([init/2, finish/2]).
 
@@ -19,11 +19,5 @@ route_prefix(<<"/ws/",P/binary>>) -> route(P);
 route_prefix(<<"/",P/binary>>) -> route(P);
 route_prefix(P) -> route(P).
 
-%% route(<<>>)              -> login;
-%% route(<<"index">>)       -> index;
-%% route(<<"index_rails">>) -> index_rails;
-%% route(<<"login">>)       -> login;
-%% route(<<"favicon.ico">>) -> static_file;
-%% route(<<"static/spa/spa.htm">>)   -> login;
-%% route(<<"static/spa/index.htm">>) -> index;
-route(_) -> login.
+route(<<>>) -> index;
+route(_)    -> index.

@@ -1,0 +1,9 @@
+{application, im,
+ [
+  {description, "My.ua IM (im)"},
+  {vsn, "1"},
+  {registered, []},
+  {applications, []},
+  {mod, { im_app, []}},
+  {env, []}
+ ]}.
