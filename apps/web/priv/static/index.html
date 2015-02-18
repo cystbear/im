@@ -3,6 +3,7 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title></title>
+        <script>var transition = {pid: '', port:'31337'}</script>
         <script src='/n2o/protocols/bert.js'></script>
         <script src='/n2o/protocols/binary.js'></script>
         <script src='/n2o/protocols/client.js'></script>
@@ -12,9 +13,15 @@
         <script src='/n2o/validation.js'></script>
         <script src='/n2o/n2o.js'></script>
 
-        <script src='/static/ws.js'></script>
+        <script>N2O_start();</script>
 </head>
-<body>my.ua IM</body>
+<body>
+
+<input type="text" value="chat here"/>
+
+<button onclick="ws.send(enc(tuple(atom('client'),'Hello')));">Send!</button>
+<span>incoming</span>
+</body>
 
 <!--<script type="application/javascript">-->
     <!--(function (m, y, u, a, s, r, c) {-->

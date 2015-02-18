@@ -22,6 +22,7 @@ dispatch_rules() ->
   cowboy_router:compile(
     [{'_', [
       {"/", cowboy_static, {priv_file, web, "static/index.html", mime()}},
+      {"/favicon.ico", cowboy_static, {priv_file, web, "static/favicon.ico"}},
       {"/ws/[...]", bullet_handler, [{handler, n2o_bullet}]},
       {"/n2o/[...]", cowboy_static, {priv_dir, n2o, "", mime()}},
       {"/static/[...]", cowboy_static, {priv_dir, web, "static", mime()}},
