@@ -5,4 +5,4 @@
               {applications,[kernel,stdlib,n2o]},
               {mod,{web_app,[]}},
               {env,[]},
-              {modules,[routes,web_app,web_sup]}]}.
+              {modules,[config,index,routes,web_app,web_sup]}]}.
