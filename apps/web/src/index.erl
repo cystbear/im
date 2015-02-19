@@ -4,17 +4,13 @@
 
 main() -> ok.
 
-event(chat) ->
-  Message = wf:q(message),
-  wf:send(message_queue, {client, Message});
-
 event({client, Message}) ->
-  wf:info(?MODULE, "Event: ~p", [Message])
-%%   ,wf:send(message_queue, {client, Message})
-;
+  wf:info(?MODULE, "Message: ~p", [Message]),
+  wf:send(message_queue, {broadcast, Message});
 
-event(init) ->
-  wf:reg(message_queue);
+event({broadcast, Message}) -> put_data_inside_bert_message;
+
+event(init) -> wf:reg(message_queue);
 
 event(Event) ->
   wf:info(?MODULE, "EMPTY Event: ~p", [Event]).

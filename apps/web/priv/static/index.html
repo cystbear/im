@@ -13,23 +13,15 @@
         <script src='/n2o/validation.js'></script>
         <script src='/n2o/n2o.js'></script>
         <script>N2O_start();</script>
-        <script src='/static/im.js'></script>
 </head>
 <body>
 
 <input type="text" value="chat here"/>
 
-<button onclick="
-ws.send(
-    enc(
-        tuple(
-            atom('chat'), 'Hello'
-        )
-    )
-);
-">Send!</button>
+<button onclick="ws.send(enc(tuple(atom('client'), 'Hello')));">Send!</button>
 <span>incoming</span>
 </body>
+<script src='/static/im.js'></script>
 
 <!--<script type="application/javascript">-->
     <!--(function (m, y, u, a, s, r, c) {-->

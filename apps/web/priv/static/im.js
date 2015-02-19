@@ -1,3 +1,4 @@
 $bert.do = function(erlang){
-    alert('msg from server');
-}
+    console.log('msg from server');
+    console.log(utf8_decode(erlang));
+};
