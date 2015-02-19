@@ -6,13 +6,15 @@ main() -> ok.
 
 event(chat) ->
   Message = wf:q(message),
-  wf:send(chat, Message);
+  wf:send(message_queue, {client, Message});
 
-event({chat, Message}) ->
-  wf:info(?MODULE, "Message received: ~p", [Message]);
+event({client, Message}) ->
+  wf:info(?MODULE, "Event: ~p", [Message])
+%%   ,wf:send(message_queue, {client, Message})
+;
 
 event(init) ->
-  wf:reg(chat);
+  wf:reg(message_queue);
 
-event(_) ->
-  wf:info(?MODULE, "nothing to do: ~p", []).
+event(Event) ->
+  wf:info(?MODULE, "EMPTY Event: ~p", [Event]).
