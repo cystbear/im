@@ -17,25 +17,14 @@
 </head>
 <body>
 
-<input type="text" value="chat here"/>
+<input id="msg" type="text" value="Сообщение на русском" />
 
-<button onclick="ws.send(enc(tuple(atom('client'), 'Hello')));">Send!</button>
-<span>incoming</span>
+<button onclick="magic()">Send!</button>
+
+<ul id="log">
+    <li>history there</li>
+</ul>
 </body>
 <script src='/static/im.js'></script>
 
-<!--<script type="application/javascript">-->
-    <!--(function (m, y, u, a, s, r, c) {-->
-        <!--m['MyUaMessengerObject'] = s;-->
-        <!--m[s] = m[s] || function () {-->
-            <!--(m[s].q = m[s].q || []).push(arguments)-->
-        <!--}, m[s].l = 1 * new Date();-->
-        <!--r = y.createElement(u), c = y.getElementsByTagName(u)[0];-->
-        <!--r.async = 1;-->
-        <!--r.src = a;-->
-        <!--c.parentNode.insertBefore(r, c)-->
-    <!--})(window, document, 'script', '//messenger.my.ua/js/common.js', 'MyUaMessenger');-->
-<!---->
-    <!--MyUaMessenger('init');-->
-<!--</script>-->
 </html>
