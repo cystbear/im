@@ -5,12 +5,20 @@
 main() -> ok.
 
 event({client, Message}) ->
-  wf:info(?MODULE, "Message: ~p", [Message]),
-  wf:send(message_queue, {broadcast, Message});
+    wf:info(?MODULE, "Broadcast Incoming Message: ~p", [Message]),
+    wf:send(room, {server, Message}); % goes to event({server,_})
 
-event({broadcast, Message}) -> put_data_inside_bert_message;
+event({server, Message}) ->
+    wf:info(?MODULE, "Broadcasted Message to Channel: ~p", [Message]),
+    self() ! {bin,Message}; % goes to event({binary,_})
 
-event(init) -> wf:reg(message_queue);
+event({binary, Message}) ->
+    wf:info(?MODULE, "Send to TCP: ~p", [Message]),
+    {server,Message}; % goes to TCP socket
+
+event(init) ->
+   wf:info(?MODULE,"Init: ~p~n",[self()]),
+   wf:reg(room); % init broadcast token
 
 event(Event) ->
   wf:info(?MODULE, "EMPTY Event: ~p", [Event]).
