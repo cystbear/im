@@ -10,9 +10,9 @@ event({client, Message}) ->
 
 event({server, Message}) ->
     wf:info(?MODULE, "Broadcasted Message to Channel: ~p", [Message]),
-    self() ! {bin,Message}; % goes to event({binary,_})
+    self() ! {bin,Message}; % goes to event({bin,_})
 
-event({binary, Message}) ->
+event({bin, Message}) ->
     wf:info(?MODULE, "Send to TCP: ~p", [Message]),
     {server,Message}; % goes to TCP socket
 
