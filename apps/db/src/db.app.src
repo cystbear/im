@@ -3,7 +3,7 @@
   {description, "my.ua IM (db)"},
   {vsn, "1"},
   {registered, []},
-  {applications, []}, %% should be kvs there
+  {applications, [kernel, stdlib, kvs]},
   {mod, { db_app, []}},
   {env, []}
  ]}.

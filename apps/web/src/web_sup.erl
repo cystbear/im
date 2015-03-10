@@ -14,6 +14,8 @@ init([]) ->
       [{env, [{dispatch, dispatch_rules()}]}]
     ),
 
+    kvs:join(),
+
     {ok, {{one_for_one, 5, 10}, []}}.
 
 mime() -> [{mimetypes, cow_mimetypes, all}].
