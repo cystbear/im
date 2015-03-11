@@ -1,6 +1,6 @@
 -module(db_animal).
 -include_lib("kvs/include/metainfo.hrl").
--include_lib("animal.hrl").
+-include("animal.hrl").
 -compile(export_all).
 
 metainfo() ->
